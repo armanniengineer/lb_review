@@ -16,6 +16,7 @@
   <tbody>
     <% @youtubers.each do |youtuber| %>
       <tr>
+        <td><%= image_tag youtuber.image.url(:medium) %></td>
         <td><%= youtuber.title %></td>
         <td><%= youtuber.description %></td>
         <td><%= youtuber.sexuality %></td>

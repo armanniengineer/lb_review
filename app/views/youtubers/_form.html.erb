@@ -1,4 +1,4 @@
-<%= form_with(model: youtuber, local: true) do |form| %>
+<%= form_for @youtuber, html: { multipart: true } do |form| %>
   <% if youtuber.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(youtuber.errors.count, "error") %> prohibited this youtuber from being saved:</h2>
@@ -29,6 +29,11 @@
   <div class="field">
     <%= form.label :rating %>
     <%= form.text_field :rating, id: :youtuber_rating %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image, id: :youtuber_image %>
   </div>
 
   <div class="actions">

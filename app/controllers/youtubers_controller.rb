@@ -55,6 +55,6 @@ class YoutubersController < ApplicationController
     end
 
     def youtuber_params
-      params.require(:youtuber).permit(:title, :description, :sexuality, :rating)
+      params.require(:youtuber).permit(:title, :description, :sexuality, :rating, :image)
     end
 end
