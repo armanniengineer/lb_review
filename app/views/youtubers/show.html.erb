@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @youtuber.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @youtuber.description %>
+</p>
+
+<p>
+  <strong>Sexuality:</strong>
+  <%= @youtuber.sexuality %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @youtuber.rating %>
+</p>
+
+<%= link_to 'Edit', edit_youtuber_path(@youtuber) %> |
+<%= link_to 'Back', youtubers_path %>

@@ -1,0 +1,37 @@
+<%= form_with(model: youtuber, local: true) do |form| %>
+  <% if youtuber.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(youtuber.errors.count, "error") %> prohibited this youtuber from being saved:</h2>
+
+      <ul>
+      <% youtuber.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :youtuber_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :youtuber_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sexuality %>
+    <%= form.text_field :sexuality, id: :youtuber_sexuality %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rating %>
+    <%= form.text_field :rating, id: :youtuber_rating %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
