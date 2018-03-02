@@ -1,34 +1,18 @@
-<p id="notice"><%= notice %></p>
+<% if !user_signed_in? %>
+  <div class="jumbotron">
+    <h1> Lesbian and Bi Youtubers Reviewed</h1>
+    <p> Don't know who to watch? Wanna find out who's new and popping? Sign Up and get more info on all the L+B youtubers out in there in the big wide world of youtube </p>
+    <p><%= link_to "Sign Up To Write Your Own Review", new_user_registration_path, class:"btn btn-primary btn-lg" %></p>
+  </div>
+<% end %>
 
-<h1>Youtubers</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Sexuality</th>
-      <th>Rating</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @youtubers.each do |youtuber| %>
-      <tr>
-        <td><%= image_tag youtuber.image.url(:medium) %></td>
-        <td><%= youtuber.title %></td>
-        <td><%= youtuber.description %></td>
-        <td><%= youtuber.sexuality %></td>
-        <td><%= youtuber.rating %></td>
-        <td><%= link_to 'Show', youtuber %></td>
-        <td><%= link_to 'Edit', edit_youtuber_path(youtuber) %></td>
-        <td><%= link_to 'Destroy', youtuber, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Youtuber', new_youtuber_path %>
+<div class="row">
+  <% @youtubers.each do |youtuber| %>
+    <div class="col-sm-6 col-md-3">
+      <div class="thumbnail">
+        <%= link_to (image_tag youtuber.image.url(:medium), class:'image'), youtuber %>
+      </div>
+    </div>
+  <% end %>
+</div>
