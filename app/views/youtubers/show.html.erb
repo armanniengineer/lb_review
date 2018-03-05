@@ -3,6 +3,8 @@
 		<div class="row">
 			<div class="col-md-4">
 				<%= image_tag @youtuber.image.url(:medium) %>
+				<div class="star-rating" data-score= <%= @avg_review %> ></div>
+				<em><%= "#{@reviews.length} reviews" %></em>
 				<div class="table-responsive">
 					<table class="table">
 						<tbody>
@@ -24,7 +26,24 @@
 							</tr>
 						</tbody>
 					</table>
+					<%= link_to "Write a review", new_youtuber_review_path(@youtuber) %>
 				</div>
+			</div>
+			<div class = "col-md-7 col-md-offset-1">
+				<h1 class="review_title"><%= @youtuber.title %></h1>
+				<p><%= @youtuber.description %></p>
+
+				<%if @reviews.blank? %>
+					<h3>No reviews just yet, would you like to be the first!</h3>
+					<%= link_to "Write Review", new_youtuber_review_path(@youtuber), class: "btn btn-danger" %>
+				<% else %>
+					<% @reviews.each do |review| %>
+						<div class="reviews">
+							<div class="star-rating" data-score= <%= review.rating %> ></div>
+							<p><%= review.comment %></p>
+						</div>
+					<% end %>
+				<% end %>
 			</div>
 		</div>
 	</div>
@@ -32,3 +51,13 @@
 
 <%= link_to 'Edit', edit_youtuber_path(@youtuber) %> |
 <%= link_to 'Back', youtubers_path %>
+
+<script>
+	$('.star-rating').raty({
+	path: '/assets/',
+	readOnly: true,
+	score: function() {
+		return $(this).attr('data-score');
+		}
+	});
+</script>
