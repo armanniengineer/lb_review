@@ -1,6 +1,15 @@
 class YoutubersController < ApplicationController
   before_action :set_youtuber, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
+
+  def search
+    if params[:search].present?
+      @youtubers = Youtuber.search(params[:search])
+    else
+      @youtubers = Youtuber.all
+    end
+  end
+  
   def index
     @youtubers = Youtuber.all
   end
