@@ -18,7 +18,7 @@
 							</tr>
 							<tr>
 								<td><strong>Sexuality:</strong></td>
-								<td><%= @youtuber.sexuality %></td>
+								<td><%= @youtuber.category.name %></td>
 							</tr>
 							<tr>
 								<td><strong>Rating:</strong></td>
@@ -48,9 +48,15 @@
 		</div>
 	</div>
 </div>
-
-<%= link_to 'Edit', edit_youtuber_path(@youtuber) %> |
 <%= link_to 'Back', youtubers_path %>
+
+<% if user_signed_in? %>
+
+	<% if @youtuber.user_id == current_user.id %>
+		<%= link_to 'Edit', edit_youtuber_path(@youtuber) %> 
+		<%= link_to 'Delete', youtuber_path(@youtuber), method: :delete, data: { confirm: "Are you sure?" } %> 
+	<% end %>
+<% end %>
 
 <script>
 	$('.star-rating').raty({

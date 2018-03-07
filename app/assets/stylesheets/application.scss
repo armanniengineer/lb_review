@@ -32,3 +32,21 @@ body{
 		padding-bottom: 8px;
 	}
 }
+
+.navbar-default {
+	background-color: #FFFFFF;
+	.navbar-brand {
+		color: #4A4A4A;
+		font-weight: bold;
+		font-family: 'Roboto Mono', monospace;
+	}
+
+	.navbar-nav {
+		color: #4A4A4A;
+		font-family: 'Roboto Mono', monospace;
+	}
+}
+
+.btn {
+	font-family: 'Roboto Mono', monospace;
+}

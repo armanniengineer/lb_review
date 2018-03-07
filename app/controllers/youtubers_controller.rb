@@ -26,13 +26,16 @@ class YoutubersController < ApplicationController
 
   def new
     @youtuber = current_user.youtubers.build
+    @categories = Category.all.map{ |c| [c.name, c.id] }
   end
-
+ 
   def edit
+    @categories = Category.all.map{ |c| [c.name, c.id] }
   end
 
   def create
     @youtuber = current_user.youtubers.build(youtuber_params)
+    @youtuber.category_id = params[:category_id]
 
     respond_to do |format|
       if @youtuber.save
@@ -46,6 +49,7 @@ class YoutubersController < ApplicationController
   end
 
   def update
+    @youtuber.category_id = params[:category_id]
     respond_to do |format|
       if @youtuber.update(youtuber_params)
         format.html { redirect_to @youtuber, notice: 'Youtuber was successfully updated.' }
@@ -71,6 +75,6 @@ class YoutubersController < ApplicationController
     end
 
     def youtuber_params
-      params.require(:youtuber).permit(:title, :description, :sexuality, :rating, :image)
+      params.require(:youtuber).permit(:title, :description, :category_id, :rating, :image)
     end
 end

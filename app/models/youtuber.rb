@@ -1,6 +1,7 @@
 class Youtuber < ApplicationRecord
 	searchkick
 	belongs_to :user
+	belongs_to :category
 	has_many :reviews
 
 	has_attached_file :image, styles: { medium: "400x600#" }
