@@ -10,33 +10,39 @@
       </ul>
     </div>
   <% end %>
+  <div class= "container-form">
+    <button class="form-btn-close">
+      <%= link_to(@youtuber) do %>
+        <i class="far fa-times-circle"></i>
+      <% end %>
+    </button>
+    <div class="field">
+      <%= form.label :title %>
+      <%= form.text_field :title, id: :youtuber_title %>
+    </div>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :youtuber_title %>
-  </div>
+    <div class="field">
+      <%= form.label :description %>
+      <%= form.text_area :description, id: :youtuber_description %>
+    </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description, id: :youtuber_description %>
-  </div>
+    <div class="field">
+      <%= form.label :sexuality %>
+      <%= select_tag(:category_id, options_for_select(@categories), :prompt => "Select Youtuber Sexuality") %>
+    </div>
 
-  <div class="field">
-    <%= form.label :sexuality %>
-    <%= select_tag(:category_id, options_for_select(@categories), :prompt => "Select Youtuber Sexuality") %>
-  </div>
+    <div class="field">
+      <%= form.label :rating %>
+      <%= form.text_field :rating, id: :youtuber_rating %>
+    </div>
+    
+    <div class="field">
+      <%= form.label :image %>
+      <%= form.file_field :image, id: :youtuber_image %>
+    </div>
 
-  <div class="field">
-    <%= form.label :rating %>
-    <%= form.text_field :rating, id: :youtuber_rating %>
-  </div>
-  
-  <div class="field">
-    <%= form.label :image %>
-    <%= form.file_field :image, id: :youtuber_image %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+    <div class="actions">
+      <%= form.submit %>
+    </div>
   </div>
 <% end %>

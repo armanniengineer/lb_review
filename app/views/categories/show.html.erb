@@ -1,16 +1,15 @@
-<h1 class="current-category"><%= params[:category] %></h1>
-<%if @youtubers.blank? %>
-	<h2> There are no Youtubers in this category, be the first!</h2>
+<h1 class="current-category"> <%= params[:category] %> </h1>
+<% if @category.youtubers.blank? %>
+	<h2> There are no Youtubers in this category, be the first! </h2>
 	<%= link_to "Create a Youtuber", new_youtuber_path(@youtuber), class: "btn btn-danger" %>
 <% else %>
 	<div class="row">
-	  <% for youtuber in @category.youtubers do %>
-	    <div class="col-sm-6 col-md-3">
-	    	<%= link_to (image_tag youtuber.image.url(:medium), class:'image'), youtuber %>
-	    </div>
-	  <% end %>
+		<% for youtuber in @category.youtubers do %>
+			<div class="col-sm-6 col-md-3">
+				<%= link_to (image_tag youtuber.image.url(:medium), class:'image'), youtuber %>
+			</div>
+		<% end %>
 	</div>
-	<%= link_to 'Edit', edit_category_path(@category) %> 
+	<%= link_to 'Edit', edit_category_path(@category) %>
 <% end %>
-
 <%= link_to 'Back', categories_path %>
