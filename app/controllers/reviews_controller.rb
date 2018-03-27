@@ -1,7 +1,9 @@
 class ReviewsController < ApplicationController
-  before_action :set_review, only: [:show, :edit, :update, :destroy]
-  before_action :set_youtuber
+  before_action :find_youtuber
+  before_action :find_review, only: [ :edit, :update, :destroy]
   before_action :authenticate_user!
+  before_action :correct_user, only: [ :edit, :destroy]
+
   
 
   # GET /reviews/new
@@ -17,11 +19,12 @@ class ReviewsController < ApplicationController
   # POST /reviews.json
   def create
     @review = Review.new(review_params)
-    @review.user_id = current_user.id
     @review.youtuber_id = @youtuber.id
+    @review.user_id = current_user.id
+    @review = @youtuber.reviews.create(review_params.merge(user_id: current_user.id))
 
     if @review.save
-      redirect_to @youtuber
+      redirect_to youtuber_path(@youtuber)
     else
       render 'new'
     end
@@ -32,7 +35,7 @@ class ReviewsController < ApplicationController
   def update
     respond_to do |format|
       if @review.update(review_params)
-        format.html { redirect_to @review, notice: 'Review was successfully updated.' }
+        format.html { redirect_to youtuber_path(@youtuber), notice: 'Review was successfully updated.' }
         format.json { render :show, status: :ok, location: @review }
       else
         format.html { render :edit }
@@ -46,23 +49,31 @@ class ReviewsController < ApplicationController
   def destroy
     @review.destroy
     respond_to do |format|
-      format.html { redirect_to reviews_url, notice: 'Review was successfully destroyed.' }
+      format.html { redirect_to youtuber_path(@youtuber), notice: 'Review was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_review
-      @review = Review.find(params[:id])
+     def find_youtuber
+      @youtuber = Youtuber.find(params[:youtuber_id])
     end
 
-    def set_youtuber
-      @youtuber = Youtuber.find(params[:youtuber_id])
+    def find_review
+      @review = Review.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def review_params
       params.require(:review).permit(:rating, :comment)
+    end
+
+    def correct_user
+      @review = current_user.reviews.find_by(id: params[:id])
+        if @review.nil?
+          flash[:alert] = "Not your review!"
+          redirect_to :back
+        end
     end
 end

@@ -1,4 +1,12 @@
-<h1>Categories</h1>
-<% for category in @categories do %>
-    <%= link_to category.name, category %>
-<% end %>
+<div class="categories-title">
+	<span>Categories</span>
+</div>
+<div class="row">
+	<% for category in @categories do %>
+		<div class="col-sm-6 col-md-3">
+			<div class="thumbnail">
+	    		<%= link_to category.name, category %>
+			</div>
+	    </div>
+	<% end %>
+</div>

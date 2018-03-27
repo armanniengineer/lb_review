@@ -1,36 +1,45 @@
-<h2>Editing Youtuber</h2>
+<div class="wrap-edit">
+    <button class="form-btn-close">
+      <%= link_to(@youtuber) do %>
+        <i class="far fa-times-circle"></i>
+      <% end %>
+    </button>
 
-<%= form_for @youtuber, html: { multipart: true } do |form| %>
-  
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :youtuber_title %>
-  </div>
+    <div class="edit-form-title">
+      <span>Editing Youtuber</span>
+    </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description, id: :youtuber_description %>
-  </div>
+    <%= form_for @youtuber, html: { multipart: true } do |form| %>
+      <div class= "container-form">
 
-  <div class="field">
-    <%= form.label :sexuality %>
-    <%= form.select :category_id, @categories %>
-  </div>
+        <div class="field">
+          <%= form.label :title %>
+          <%= form.text_field :title, id: :youtuber_title %>
+        </div>
 
-  <div class="field">
-    <%= form.label :rating %>
-    <%= form.text_field :rating, id: :youtuber_rating %>
-  </div>
-  
-  <div class="field">
-    <%= form.label :image %>
-    <%= form.file_field :image, id: :youtuber_image %>
-  </div>
+        <div class="field">
+          <%= form.label :description %>
+          <%= form.text_area :description, id: :youtuber_description %>
+        </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+        <div class="field">
+          <%= form.label :sexuality %>
+          <%= form.select :category_id, @categories %>
+        </div>
 
-<%= link_to 'Show', @youtuber %> |
-<%= link_to 'Back', youtubers_path %>
+        <div class="field">
+          <%= form.label :rating %>
+          <%= form.text_field :rating, id: :youtuber_rating %>
+        </div>
+        
+        <div class="field">
+          <%= form.label :image %>
+          <%= form.file_field :image, id: :youtuber_image %>
+        </div>
+
+        <div class="actions">
+          <%= form.submit "UPDATE", class:"btn btn-danger"%>
+        </div>
+      </div>
+    <% end %>
+</div>

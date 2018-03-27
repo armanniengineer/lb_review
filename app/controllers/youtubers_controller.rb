@@ -1,6 +1,7 @@
 class YoutubersController < ApplicationController
   before_action :set_youtuber, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :owned_youtuber, only: [:edit, :update, :destroy]
 
   def search
     if params[:search].present?
@@ -15,12 +16,11 @@ class YoutubersController < ApplicationController
   end
 
   def show
-    @reviews = Review.where(youtuber_id: @youtuber.id).order("created_at DESC")
-
-    if @reviews.blank?
-      @avg_review = 0
+    @reviews = @youtuber.reviews.order("created_at DESC")
+     unless @reviews.present?
+      @average_review = 0
     else
-      @avg_review = @reviews.average(:rating).round(2)
+      @average_review = @reviews.average(:rating).present? ? @reviews.average(:rating).round(2) : 0
     end
   end
 
@@ -70,11 +70,19 @@ class YoutubersController < ApplicationController
   end
 
   private
+  
     def set_youtuber
       @youtuber = Youtuber.find(params[:id])
     end
 
     def youtuber_params
       params.require(:youtuber).permit(:title, :description, :category_id, :rating, :image)
+    end
+
+    def owned_youtuber
+      unless @youtuber.user.id == current_user.id
+        flash[:alert] = "You didn't create this youtuber!"
+        redirect_to root_path
+      end
     end
 end

@@ -19,6 +19,7 @@ gem 'paperclip', '~> 5.2'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem "pundit"
 gem 'searchkick', '~> 3.0'
+gem 'acts_as_votable', '~> 0.11.1'
 gem 'rails_admin', '~> 1.3'
 
 group :development, :test do

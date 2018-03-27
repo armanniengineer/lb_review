@@ -50,3 +50,35 @@ body{
 .btn {
 	font-family: 'Roboto Mono', monospace;
 }
+
+.wrap-user {
+	width: 560px;
+  background: #fff;
+  border-radius: 3px;
+  position: relative;
+  margin-top: 40px;
+  margin-right:auto; 
+	margin-left:auto;
+  box-shadow: 0 2px 20px 5px black;
+}
+
+.user-form-title {
+	font-family: 'Roboto Mono', monospace;
+  font-size: 30px;
+  color: #4A4A4A;
+  text-transform: uppercase;
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-user-form {
+	width: 100%;
+  justify-content: space-between;
+  padding: 20px 20px 50px 130px;
+}
+.field input#user_remember_me{
+	width: 60px;
+}
