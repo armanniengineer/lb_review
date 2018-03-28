@@ -1,46 +1,34 @@
-<div class="wrap-edit">
-  <button class="form-btn-close">
-    <%= link_to(@youtuber) do %>
-      <i class="far fa-times-circle"></i>
+<%= form_for([@youtuber, @youtuber.reviews.build]) do |form| %>
+
+  <div class= "container-form">
+
+    <% if @review.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+
+        <ul>
+          <% @review.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
     <% end %>
-  </button>
 
-  <div class="edit-form-title">
-    <span>New Review</span>
-  </div>
-
-  <%= form_for([@youtuber, @youtuber.reviews.build]) do |form| %>
-
-    <div class= "container-form">
-
-      <% if @review.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
-
-          <ul>
-            <% @review.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
-
-      <div class="field">
-        <label>Rating</label>
-        <div id="star-rating"></div>
-      </div>
-
-      <div class="field">
-        <%= form.label :comment %>
-        <%= form.text_area :comment, id: :review_comment %>
-      </div>
-
-      <div class="actions">
-        <%= form.submit %>
-      </div>
+    <div class="field">
+      <label>Rating</label>
+      <div id="star-rating"></div>
     </div>
-  <% end %>
-</div>
+
+    <div class="field">
+      <%= form.label :comment %>
+      <%= form.text_area :comment, id: :review_comment %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  </div>
+<% end %>
 
 <script>
   $('#star-rating').raty({

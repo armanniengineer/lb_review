@@ -1,3 +1,14 @@
-<%= render 'form' %>
+<div class="wrap-edit">
+  <button class="form-btn-close">
+    <%= link_to(@youtuber) do %>
+      <i class="far fa-times-circle"></i>
+    <% end %>
+  </button>
 
-<%= link_to 'Back', youtuber_path(@youtuber) %>
+  <div class="edit-form-title">
+    <span>New Review</span>
+  </div>
+
+	<%= render 'form' %>
+</div>
+

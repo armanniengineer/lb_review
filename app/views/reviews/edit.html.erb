@@ -1,5 +1,37 @@
-<h1>Editing Review</h1>
+<div class="wrap-edit">
+	<button class="form-btn-close">
+		<%= link_to(@youtuber) do %>
+		  <i class="far fa-times-circle"></i>
+		<% end %>
+	</button>
 
-<%= render 'form', review: @review %>
+	<div class="edit-form-title">
+		<span>Editing Review</span>
+	</div>
 
-<%= link_to 'Back', youtuber_path(@youtuber)  %>
+	<%= form_for([@youtuber, @review]) do |form| %>
+		<div class= "container-form">
+			<div class="field">
+			    <label>Rating</label>
+			    <div id="star-rating"></div>
+			</div>
+
+			<div class="field">
+			    <%= form.label :comment %>
+			    <%= form.text_area :comment, id: :review_comment %>
+			</div>
+
+			<div class="actions">
+			    <%= form.submit %>
+			</div>
+		</div>
+	<% end %>
+</div>
+
+
+<script>
+  $('#star-rating').raty({
+    path: '/assets/',
+    scoreName: 'review[rating]'
+  });
+</script>
