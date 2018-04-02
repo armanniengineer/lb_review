@@ -1,54 +1,45 @@
-<div class="wrap-edit">
-  <button class="form-btn-close">
-    <%= link_to(@youtuber) do %>
-      <i class="far fa-times-circle"></i>
-    <% end %>
-  </button>
+<%= form_for @youtuber, html: { multipart: true } do |form| %>
 
+  <div class= "container-form">
 
-  <%= form_for @youtuber, html: { multipart: true } do |form| %>
+    <% if youtuber.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(youtuber.errors.count, "error") %> prohibited this youtuber from being saved:</h2>
 
-    <div class= "container-form">
-
-      <% if youtuber.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(youtuber.errors.count, "error") %> prohibited this youtuber from being saved:</h2>
-
-          <ul>
-          <% youtuber.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-          </ul>
-        </div>
-      <% end %>
-        <div class="field">
-          <%= form.label :title %> <br>
-          <%= form.text_field :title, id: :youtuber_title, :required => true %>
-        </div>
-
-        <div class="field">
-          <%= form.label :description %> <br>
-          <%= form.text_area :description, id: :youtuber_description, :required => true, minlength: 50 , maxlength: 200, placeholder: "e.g. What is the youtuber like? What does the youtuber do in youtube videos?" %>
-        </div>
-
-        <div class="field">
-          <%= form.label :sexuality %> <br>
-          <%= select_tag(:category_id, options_for_select(@categories), :prompt => "Select Youtuber Sexuality") %>
-        </div>
-
-        <div class="field">
-          <%= form.label :rating %> <br>
-          <%= form.text_field :rating, id: :youtuber_rating, :required => true, placeholder: "e.g. Give a number between 0-10" %>
-        </div>
-        
-        <div class="field">
-          <%= form.label :image %> 
-          <%= form.file_field :image, id: :youtuber_image, :required => true %>
-        </div>
-
-        <div class="actions">
-          <%= form.submit "SUBMIT", class:"btn btn-danger" %>
-        </div>
+        <ul>
+        <% youtuber.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
       </div>
-  <% end %>
-</div>
+    <% end %>
+    <div class="field">
+      <%= form.label :title %> <br>
+      <%= form.text_field :title, id: :youtuber_title, :required => true %>
+    </div>
+
+    <div class="field">
+      <%= form.label :description %> <br>
+      <%= form.text_area :description, id: :youtuber_description, :required => true, minlength: 50 , maxlength: 200, placeholder: "e.g. What is the youtuber like? What does the youtuber do in youtube videos?" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :sexuality %> <br>
+      <%= select_tag(:category_id, options_for_select(@categories), :prompt => "Select Youtuber Sexuality") %>
+    </div>
+
+    <div class="field">
+      <%= form.label :rating %> <br>
+      <%= form.text_field :rating, id: :youtuber_rating, :required => true, placeholder: "e.g. Give a number between 0-10" %>
+    </div>
+    
+    <div class="field">
+      <%= form.label :image %> 
+      <%= form.file_field :image, id: :youtuber_image, :required => true %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "SUBMIT", class:"btn btn-danger" %>
+    </div>
+  </div>
+<% end %>

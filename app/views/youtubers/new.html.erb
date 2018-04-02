@@ -1,4 +1,12 @@
-<div class="new-youtuber">
-<h1>New Youtuber</h1>
+<div class="wrap-edit">
+	<button class="form-btn-close">
+		<%= link_to(@youtuber) do %>
+		  <i class="far fa-times-circle"></i>
+		<% end %>
+	</button>
+
+	<div class="edit-form-title">
+		<span>New Youtuber</span>
+	</div>
+	<%= render 'form', youtuber: @youtuber %>
 </div>
-<%= render 'form', youtuber: @youtuber %>
