@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :find_youtuber
-  before_action :find_review, only: [ :edit, :update, :destroy]
+  before_action :find_review, only: [ :edit, :update, :destroy, :upvote, :downvote]
   before_action :authenticate_user!
   before_action :correct_user, only: [ :edit, :destroy]
 
@@ -53,6 +53,17 @@ class ReviewsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def upvote
+    @review.upvote_from current_user
+    redirect_back(fallback_location: root_path) 
+  end
+
+  def downvote
+    @review.downvote_from current_user
+    redirect_back(fallback_location: root_path)
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

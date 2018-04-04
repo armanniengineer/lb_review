@@ -1,4 +1,5 @@
 class Youtuber < ApplicationRecord
+	acts_as_votable
 	searchkick
 	belongs_to :user
 	belongs_to :category

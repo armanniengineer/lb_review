@@ -21,6 +21,7 @@ gem "pundit"
 gem 'searchkick', '~> 3.0'
 gem 'acts_as_votable', '~> 0.11.1'
 gem 'rails_admin', '~> 1.3'
+gem 'pry-byebug'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

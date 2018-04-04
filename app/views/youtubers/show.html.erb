@@ -42,6 +42,19 @@
 						<div class="reviews">
 							<div class="star-rating" data-score= <%= review.rating %> ></div>
 							<p><%= review.comment %></p>
+							<%= link_to like_youtuber_review_path(review.youtuber, review), class: "like", method: :put do %>
+								<button type="button" class="btn btn-info" aria-label="Left Align">
+									<span class="glyphicon glyphicon-thumbs-up glyphicon-align-center" aria-hidden="true"></span>
+									<span class="badge"><%= review.get_upvotes.size %></span>
+								</button>
+							<% end %>
+				
+							<%= link_to unlike_youtuber_review_path(review.youtuber, review), class: "like", method: :put do %>
+								<button type="button" class="btn btn-info" aria-label="Left Align">
+									<span class="glyphicon glyphicon-thumbs-down glyphicon-align-center" aria-hidden="true"></span>
+									<span class="badge"><%= review.get_downvotes.size %></span>
+								</button>
+							<% end %>
 						</div>
 
 						<% if review.user_id == current_user.id %>

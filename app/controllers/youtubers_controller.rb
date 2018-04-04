@@ -1,5 +1,5 @@
 class YoutubersController < ApplicationController
-  before_action :set_youtuber, only: [:show, :edit, :update, :destroy]
+  before_action :set_youtuber, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   before_action :authenticate_user!, except: [:index, :show]
   before_action :owned_youtuber, only: [:edit, :update, :destroy]
 
@@ -67,6 +67,16 @@ class YoutubersController < ApplicationController
       format.html { redirect_to youtubers_url, notice: 'Youtuber was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+   def upvote
+    @youtuber.upvote_from current_user
+    redirect_back(fallback_location: root_path) 
+  end
+
+  def downvote
+    @youtuber.downvote_from current_user
+    redirect_back(fallback_location: root_path)
   end
 
   private

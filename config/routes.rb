@@ -7,9 +7,14 @@ Rails.application.routes.draw do
   	collection do
   		get 'search'
   	end
+    member do
+        put 'like' => "youtubers#upvote"
+        put 'unlike' => "youtubers#downvote"
+    end
   	resources :reviews, except: [:show, :index] do
       member do
-        get 'like'
+        put 'like' => "reviews#upvote"
+        put 'unlike' => "reviews#downvote"
       end
     end
   end

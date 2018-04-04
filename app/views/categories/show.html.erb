@@ -8,10 +8,22 @@
 			<div class="col-sm-6 col-md-3">
 				<div class="thumbnail">
 					<%= link_to (image_tag youtuber.image.url(:medium), class:'image'), youtuber %>
+					<%= link_to like_youtuber_path(youtuber), class: "like", method: :put do %>
+						<button type="button" class="btn btn-info" aria-label="Left Align">
+							<span class="glyphicon glyphicon-thumbs-up glyphicon-align-center" aria-hidden="true"></span>
+							<span class="badge"><%= youtuber.get_upvotes.size %></span>
+						</button>
+					<% end %>
+				
+					<%= link_to unlike_youtuber_path(youtuber), class: "like", method: :put do %>
+						<button type="button" class="btn btn-info" aria-label="Left Align">
+							<span class="glyphicon glyphicon-thumbs-down glyphicon-align-center" aria-hidden="true"></span>
+							<span class="badge"><%= youtuber.get_downvotes.size %></span>
+						</button>
+					<% end %>
 				</div>
 			</div>
 		<% end %>
 	</div>
-	<%= link_to 'Edit', edit_category_path(@category) %>
 <% end %>
 <%= link_to 'Back', categories_path %>
