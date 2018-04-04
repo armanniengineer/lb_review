@@ -12,7 +12,7 @@ class YoutubersController < ApplicationController
   end
   
   def index
-    @youtubers = Youtuber.all
+    @youtubers = Youtuber.all.order("created_at DESC")
   end
 
   def show

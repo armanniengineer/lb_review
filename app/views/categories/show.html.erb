@@ -4,7 +4,7 @@
 	<%= link_to "Create a Youtuber", new_youtuber_path(@youtuber), class: "btn btn-danger" %>
 <% else %>
 	<div class="row">
-		<% for youtuber in @category.youtubers do %>
+		<% for youtuber in @category.youtubers.order(:cached_votes_score => :desc) do %>
 			<div class="col-sm-6 col-md-3">
 				<div class="thumbnail">
 					<%= link_to (image_tag youtuber.image.url(:medium), class:'image'), youtuber %>
