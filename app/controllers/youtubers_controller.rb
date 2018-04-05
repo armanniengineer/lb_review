@@ -69,7 +69,7 @@ class YoutubersController < ApplicationController
     end
   end
 
-   def upvote
+  def upvote
     @youtuber.upvote_from current_user
     redirect_back(fallback_location: root_path) 
   end

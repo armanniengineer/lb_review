@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180402084301) do
+ActiveRecord::Schema.define(version: 20180404081451) do
 
   create_table "categories", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(version: 20180402084301) do
     t.integer "cached_weighted_score", default: 0
     t.integer "cached_weighted_total", default: 0
     t.float "cached_weighted_average", default: 0.0
+    t.string "link"
   end
 
 end
