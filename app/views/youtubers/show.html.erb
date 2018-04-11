@@ -26,11 +26,15 @@
 							</tr>
 						</tbody>
 					</table>
-					<%= link_to "Add review", new_youtuber_review_path(@youtuber) %>
+					<%= link_to "Add review", new_youtuber_review_path(@youtuber), class: "btn btn-info" %>
 				</div>
 			</div>
 			<div class = "col-md-7 col-md-offset-1">
 				<h1 class="review_title"><%= @youtuber.title %> Reviews</h1>
+
+				<div class= "youtuber-video">
+					<iframe width="560" height="315" src=<%= "http://www.youtube.com/embed/#{ @youtuber.youtube_embed }" %>  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+				</div>
 				<p><%= @youtuber.description %></p>
 				<h4> This post has <%= pluralize(@reviews.count, "Reviews") %></h4>
 

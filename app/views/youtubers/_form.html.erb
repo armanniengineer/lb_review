@@ -20,7 +20,7 @@
 
     <div class="field">
       <%= form.label :description %> <br>
-      <%= form.text_area :description, id: :youtuber_description, :required => true, minlength: 50 , maxlength: 200, placeholder: "e.g. What is the youtuber like? What does the youtuber do in youtube videos?" %>
+      <%= form.text_area :description, id: :youtuber_description, :required => true, minlength: 50 , maxlength: 300, placeholder: "e.g. What is the youtuber like? What does the youtuber do in youtube videos?" %>
     </div>
 
     <div class="field">
@@ -36,6 +36,11 @@
     <div class="field">
       <%= form.label :image %> 
       <%= form.file_field :image, id: :youtuber_image, :required => true %>
+    </div>
+
+    <div class="field">
+      <%= form.label :link %>
+      <%= form.url_field :link, id: :youtuber_link, :required =>true %>
     </div>
 
     <div class="actions">

@@ -86,7 +86,7 @@ class YoutubersController < ApplicationController
     end
 
     def youtuber_params
-      params.require(:youtuber).permit(:title, :description, :category_id, :rating, :image)
+      params.require(:youtuber).permit(:title, :description, :category_id, :rating, :image, :link)
     end
 
     def owned_youtuber

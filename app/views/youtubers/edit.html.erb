@@ -37,6 +37,11 @@
           <%= form.file_field :image, id: :youtuber_image %>
         </div>
 
+        <div class="field">
+          <%= form.label :link %>
+          <%= form.url_field :link, id: :youtuber_link %>
+        </div>
+
         <div class="actions">
           <%= form.submit "UPDATE", class:"btn btn-danger"%>
         </div>
