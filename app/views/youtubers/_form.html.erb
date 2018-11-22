@@ -14,9 +14,9 @@
       </div>
     <% end %>
 
-    <div class="field">
+    <div class="field title-name">
       <%= form.label :title %> <br>
-      <%= form.text_field :title, id: :youtuber_title, :required => true %>
+      <%= form.text_field :title, id: :youtuber_title, :required => true, placeholder: "Youtuber Name" %>
     </div>
 
     <div class="field">
@@ -26,7 +26,7 @@
 
     <div class="field">
       <%= form.label :sexuality %> <br>
-      <%= select_tag(:category_id, options_for_select(@categories), :prompt => "Select Youtuber Sexuality") %>
+      <%= select_tag(:category_id, options_for_select(@categories), :prompt => "Select Youtuber Sexuality", :required => true) %>
     </div>
 
     <div class="field">

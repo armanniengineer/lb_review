@@ -27,54 +27,66 @@
   font-size: 17px;
 }
 
-.edit-form-title {
-  width: 100%;
-  height: 80px;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-  padding: 10px 35px;
-}
-
+/////// Add Youtuber Form //////
 .wrap-edit {
-	width: 560px;
-  background: #fff;
-  border-radius: 3px;
-  position: relative;
-  margin-top: 40px;
-  margin-bottom: 60px;
-  margin-right:auto; 
-	margin-left:auto;
-  box-shadow: 0 2px 20px 5px black;
+  color: #fefefe;
+  border-style: solid;
+  border-width: 10px;
+  border-color: rgb(254, 254, 254);
+  border-radius: 10px 10px 10px 10px;
+  background-image: -moz-linear-gradient( -90deg, rgb(236, 111, 102) 0%, rgb(243, 161, 131) 100%);
+  background-image: -webkit-linear-gradient( -90deg, rgb(236, 111, 102) 0%, rgb(243, 161, 131) 100%);
+  background-image: -ms-linear-gradient( -90deg, rgb(236, 111, 102) 0%, rgb(243, 161, 131) 100%);
+  width: 90%;
+  min-width: 400px;
+  max-width: 700px;
+  margin: 40px auto 60px;
+  padding: 25px;
+  
 }
 
-.edit-form-title {
-	font-family: 'Roboto Mono', monospace;
-  font-size: 30px;
-  color: #4A4A4A;
+.edit-form-title{
+  font-family: 'Roboto Mono', monospace;
+  font-size: 40px;
+  color: white;
+  font-weight: bold;
   text-transform: uppercase;
   width: 100%;
+  margin-top: 50px;
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
 }
+
+.wrap-edit select{
+    height: 25px;
+    width: 50%;
+    color: black;
+}
+
+.wrap-edit textarea{
+  width: 50%;
+}
+////////////////////
 
 .container-form {
-	width: 100%;
-  justify-content: space-between;
-  padding: 20px 20px 50px 130px;
+  text-align: center;
+  margin: 0 auto;
+	// width: 100%;
+ //  justify-content: space-between;
+ //  padding: 20px 20px 50px 130px;
 }
 
-.field {
-	margin-top: 15px;
-}
+// .field {
+// 	margin-top: 15px;
+// }
 
-.field input {
-	width: 220px;
-}
+// .field input {
+// 	width: 220px;
+// }
 
-.field textarea {
-	width: 220px;
-}
+// .field textarea {
+// 	width: 220px;
+// }
 
 .like {
   text-decoration: none;
@@ -125,9 +137,6 @@
   border-top: none !important;
 }
 
-////// changed this for youtuber profile ...check if changed else where
 .back-btn {
   position: relative;
-  // right:    0px;
-  // bottom:   0px;
 }

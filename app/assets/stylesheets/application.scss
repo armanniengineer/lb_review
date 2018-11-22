@@ -241,6 +241,12 @@ body{
     color: #111;
 }
 
+.reset-btn input[type="submit"]{
+  margin-left: 30%;
+  font-size: 17px;
+  padding: 10px;
+  }
+
 @media only screen and (min-width: 768px) {
 
   .wrap-user .check-box {
@@ -280,7 +286,12 @@ body{
       padding: 5px;
       margin-top: 10px;
     }
-
+    
+    .reset-btn input[type="submit"]{
+      margin-left: 38%;
+      font-size: 17px;
+      padding: 10px;
+    }
 }
 ////////   Edit Profile css
 
