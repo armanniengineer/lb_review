@@ -11,7 +11,7 @@
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
-    <!-- <div class= "container-user-form"> -->
+    <div class= "container-user-form">
 
       <div class="field input-container">
        <!--  <%= f.label :email %><br /> -->
@@ -32,7 +32,7 @@
 
       <div class="field input-container">
         <!--<%= f.label :password_confirmation %><br />-->
-        <div class="col-sm-5 col-sm-push-1 password-input with-placeholder">
+        <div class="col-sm-5 password-input with-placeholder">
           <%= f.password_field :password_confirmation, autocomplete: "off", placeholder:"Confirm password" %>
         </div>
       </div>
@@ -49,6 +49,6 @@
       </div>
 
       <%= render "devise/shared/links" %>
-   <!--  </div> -->
+    </div>
   <% end %>
 </div>

@@ -207,7 +207,8 @@ body{
     padding: 10px 50px;
     margin: 25px 0 15px 0;
     position: relative;
-    display: inline-block;
+    margin-left: 25%;
+    display: block;
     transition: all .1s linear;
 }
 
@@ -238,11 +239,18 @@ body{
     color: #111;
 }
 
+// .actions {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// }
+
 
 @media only screen and (min-width: 768px) {
 
   .wrap-user .check-box {
         text-align: left;
+        margin-left: 45px;
     }
     .wrap-user .password_confirmation-input {
         width: 47.5%;
@@ -250,7 +258,7 @@ body{
         // position: relative;
     }
     .wrap-user .password-input {
-        width: 47.5%;
+        width: 49.5%;
     }
     .wrap-user .email-input {
         margin-bottom: 20px;
@@ -258,6 +266,10 @@ body{
     }
     .wrap-user form {
         width: 100%;
+    }
+
+    .wrap-user input[type="submit"] {
+      margin-left: 35%;
     }
 }
 
