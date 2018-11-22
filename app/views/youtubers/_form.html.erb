@@ -14,33 +14,32 @@
       </div>
     <% end %>
 
-    <div class="field title-name">
-      <%= form.label :title %> <br>
-      <%= form.text_field :title, id: :youtuber_title, :required => true, placeholder: "Youtuber Name" %>
+    <div class="field input-container">
+      <%= form.text_field :title, id: :youtuber_title, :required => true, placeholder: "Enter Youtuber Name" %>
     </div>
 
-    <div class="field">
+    <div class="field input-container">
       <%= form.label :description %> <br>
-      <%= form.text_area :description, id: :youtuber_description, :required => true, minlength: 50 , maxlength: 400, placeholder: "e.g. What is the youtuber like? What does the youtuber do in youtube videos?" %>
+      <%= form.text_area :description, id: :youtuber_description, :required => true, minlength: 50 , maxlength: 400, placeholder: "Tell us about the youtuber? What does the youtuber do in their youtube videos?" %>
     </div>
 
-    <div class="field">
+    <div class="field input-container">
       <%= form.label :sexuality %> <br>
       <%= select_tag(:category_id, options_for_select(@categories), :prompt => "Select Youtuber Sexuality", :required => true) %>
     </div>
 
-    <div class="field">
+    <div class="field input-container">
       <%= form.label :rating %> <br>
-      <%= form.text_field :rating, id: :youtuber_rating, :required => true, placeholder: "e.g. Give a number between 0-10" %>
+      <%= form.text_field :rating, id: :youtuber_rating, :required => true, placeholder: "Give a number between 0-10" %>
     </div>
     
-    <div class="field">
+    <div class="field input-container">
       <%= form.label :image %> 
       <%= form.file_field :image, id: :youtuber_image, :required => true %>
     </div>
 
-    <div class="field">
-      <%= form.label :link %>
+    <div class="field input-container">
+      <%= form.label :link %><br>
       <%= form.url_field :link, id: :youtuber_link, :required =>true, placeholder: "Youtube video link" %>
     </div>
 
