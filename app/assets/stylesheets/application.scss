@@ -124,10 +124,6 @@ body{
 }
 
 .wrap-user form {
-	// width: 100%;
- //  justify-content: space-between;
- //  padding: 20px 20px 50px 130px;
-  // nothing really changed..
   text-align: center;
   margin: 0 auto;
 }
@@ -139,7 +135,13 @@ body{
 .delete-account{
 	padding-left: 10px;
 	padding-bottom: 5px;
+  margin-top: 80px;
 }
+
+// .delete-account input[type="submit"] {
+
+// }
+
 ////////new add
 .wrap-user input::-webkit-input-placeholder {
     color: #fefefe;
@@ -239,13 +241,6 @@ body{
     color: #111;
 }
 
-// .actions {
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-// }
-
-
 @media only screen and (min-width: 768px) {
 
   .wrap-user .check-box {
@@ -271,6 +266,30 @@ body{
     .wrap-user input[type="submit"] {
       margin-left: 35%;
     }
+
+    .wrap-user .with-center{
+      width: 100%;
+    }
+
+    .delete-account input[type="submit"] {
+      margin-left: 0%;
+      width: 111px;
+      height: 33px;
+      font-size: 10px;
+      text-align: left;
+      padding: 5px;
+      margin-top: 10px;
+    }
+
+}
+////////   Edit Profile css
+
+.some-space {
+  margin-bottom: 30px;
+}
+
+.top-space{
+  margin-top: 20px;
 }
 
 

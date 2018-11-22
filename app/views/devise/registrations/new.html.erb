@@ -14,14 +14,12 @@
     <div class= "container-user-form">
 
       <div class="field input-container">
-       <!--  <%= f.label :email %><br /> -->
        <div class="col-sm-12 email-input with-placeholder">
           <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "example@rainbowrank.com"%>
         </div>
       </div>
 
       <div class="field input-container">
-        <!-- <%= f.label :password %> -->
         <div class="col-sm-6 password-input with-placeholder">
           <%= f.password_field :password, autocomplete: "off", placeholder: "Enter password" %><br />
           <% if @minimum_password_length %>
@@ -31,7 +29,6 @@
       </div>
 
       <div class="field input-container">
-        <!--<%= f.label :password_confirmation %><br />-->
         <div class="col-sm-5 password-input with-placeholder">
           <%= f.password_field :password_confirmation, autocomplete: "off", placeholder:"Confirm password" %>
         </div>
