@@ -17,3 +17,5 @@
 //= require jquery.raty
 //= require turbolinks
 //= require_tree .
+//= require ModernTube.min
+ 

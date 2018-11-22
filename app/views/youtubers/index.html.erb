@@ -1,9 +1,15 @@
 <% if !user_signed_in? %>
   <div class="jumbotron">
-    <h1> LGBTQ+ Youtubers Reviewed</h1>
+    <h1> Welcome To RainbowRank</h1>
     <p> Don't know who to watch? Wanna find out who's new and popping? Sign Up and get more info on all our youtubers out in there in the big wide world of youtube </p>
     <p><%= link_to "Sign Up To Write Your Own Review", new_user_registration_path, class:"btn btn-primary btn-lg" %></p>
   </div>
+
+  <% else %>
+    <div id="banner">
+      <h1>Welcome To RainbowRank</h1>
+      <p>Keep updated with new, fun and inspiring LGBTQ+ Youtubers from all over the world. </br><strong> Right here on RainbowRank! </strong></p>
+    </div>
 <% end %>
 
 

@@ -1,7 +1,7 @@
 <h1 class="current-category"> <%= params[:category] %> </h1>
 <% if @category.youtubers.blank? %>
-	<h2> There are no Youtubers in this category, be the first! </h2>
-	<%= link_to "Create a Youtuber", new_youtuber_path(@youtuber), class: "btn btn-danger" %>
+	<h2 class="cat-empty"> There are no Youtubers in this category, be the first! </h2>
+	<%= link_to "Create a Youtuber", new_youtuber_path(@youtuber), class: "btn btn-danger more-space" %>
 <% else %>
 	<div class="row">
 		<% for youtuber in @category.youtubers.order(:cached_votes_score => :desc) do %>
@@ -26,4 +26,4 @@
 		<% end %>
 	</div>
 <% end %>
-<%= link_to 'Back', categories_path %>
+<%= link_to 'Back', categories_path, class: "btn more-space" %>

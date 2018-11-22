@@ -1,16 +1,18 @@
 <div class="wrap-user">
   <button class="form-btn-close">
-    <%= link_to(@youtuber) do %>
+    <%= link_to youtubers_path do %>
       <i class="far fa-times-circle"></i>
     <% end %>
   </button>
 
   <div class="user-form-title">
-      <span>My Profile</span>
+    <span>My Profile</span>
   </div>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+
     <%= devise_error_messages! %>
+
     <div class= "container-user-form">
 
       <div class="field">
@@ -46,8 +48,10 @@
       </div>
     </div>
   <% end %>
+  
+  <div class="delete-account">
+    <h4> Delete my account </h4>
 
-  <h3>Cancel my account</h3>
-
-  <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+    <p>Unhappy? <%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:"btn btn-info" %></p>
+  </div>
 </div>

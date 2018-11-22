@@ -18,6 +18,7 @@ gem 'devise', '~> 4.4'
 gem 'paperclip', '~> 5.2'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem "pundit"
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.2'
 gem 'searchkick', '~> 3.0'
 gem 'acts_as_votable', '~> 0.11.1'
 gem 'rails_admin', '~> 1.3'

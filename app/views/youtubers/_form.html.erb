@@ -13,6 +13,7 @@
         </ul>
       </div>
     <% end %>
+
     <div class="field">
       <%= form.label :title %> <br>
       <%= form.text_field :title, id: :youtuber_title, :required => true %>
@@ -20,7 +21,7 @@
 
     <div class="field">
       <%= form.label :description %> <br>
-      <%= form.text_area :description, id: :youtuber_description, :required => true, minlength: 50 , maxlength: 300, placeholder: "e.g. What is the youtuber like? What does the youtuber do in youtube videos?" %>
+      <%= form.text_area :description, id: :youtuber_description, :required => true, minlength: 50 , maxlength: 400, placeholder: "e.g. What is the youtuber like? What does the youtuber do in youtube videos?" %>
     </div>
 
     <div class="field">
@@ -40,11 +41,12 @@
 
     <div class="field">
       <%= form.label :link %>
-      <%= form.url_field :link, id: :youtuber_link, :required =>true %>
+      <%= form.url_field :link, id: :youtuber_link, :required =>true, placeholder: "Youtube video link" %>
     </div>
 
     <div class="actions">
       <%= form.submit "SUBMIT", class:"btn btn-danger" %>
     </div>
+    
   </div>
 <% end %>

@@ -1,41 +1,44 @@
 <div class="panel panel-default">
 	<div class="panel-body">
-		<div class="row">
-			<div class="col-md-4">
-				<%= image_tag @youtuber.image.url(:medium) %>
-				<div class="star-rating" data-score=<%= @average_review %> ></div>
-				<em><%= "Based on #{@reviews.length} reviews" %></em>
+		<div class="you-row">
+			<div class="col-sm-12 col-md-4 youtuber-row">
+				<%= image_tag @youtuber.image.url(:medium), :class => "img-responsive"%>
+				<h3><%= @youtuber.title %></h3>
+				<p><%= @youtuber.description %></p>
 				<div class="table-responsive">
 					<table class="table">
 						<tbody>
 							<tr>
-								<td><strong>Title:</strong></td>
-								<td><%= @youtuber.title %></td>
-							</tr>
-							<tr>
-								<td><strong>Description:</strong></td>
-								<td><%= @youtuber.description %></td>
-							</tr>
-							<tr>
 								<td><strong>Sexuality:</strong></td>
+							</tr>
+							<tr>
 								<td><%= @youtuber.category.name %></td>
 							</tr>
 							<tr>
 								<td><strong>Rating:</strong></td>
+							</tr>
+							<tr>
 								<td><%=  @youtuber.rating %></td>
+							</tr>
+							<tr>
+								<td>
+									<div class="star-rating" data-score="<%= @average_review %>" >
+									</div>
+									<em><%= "Based on #{@reviews.length} reviews" %></em>
+								</td>
 							</tr>
 						</tbody>
 					</table>
 					<%= link_to "Add review", new_youtuber_review_path(@youtuber), class: "btn btn-info" %>
 				</div>
 			</div>
-			<div class = "col-md-7 col-md-offset-1">
-				<h1 class="review_title"><%= @youtuber.title %> Reviews</h1>
+			<div class = "col-sm-12 col-md-8 youtube-video">
+				<h1 class="review_title"><%= @youtuber.title %></h1>
 
 				<div class= "youtuber-video">
 					<iframe width="560" height="315" src=<%= "http://www.youtube.com/embed/#{ @youtuber.youtube_embed }" %>  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 				</div>
-				<p><%= @youtuber.description %></p>
+				<h3><%= @youtuber.title %> Reviews</h3>
 				<h4> This post has <%= pluralize(@reviews.count, "Reviews") %></h4>
 
 				<%if @reviews.blank? %>
@@ -70,8 +73,8 @@
 				<% end %>
 			</div>
 		</div>
+		<%= link_to 'Back', youtubers_path, class: "btn back-btn" %>
 	</div>
-	<%= link_to 'Back', youtubers_path %>
 
 	<% if user_signed_in? %>
 
@@ -91,4 +94,7 @@
 		return $(this).attr('data-score');
 		}
 	});
+
+	$('.youtube-video').moderntube();
+
 </script>
