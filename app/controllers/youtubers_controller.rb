@@ -5,7 +5,8 @@ class YoutubersController < ApplicationController
 
   def search
     if params[:search].present?
-      @youtubers = Youtuber.search(params[:search])
+      @youtubers = YoutuberFilter.new.filter(Youtuber.all, params[:search])
+      #@youtubers = Youtuber.search(params[:search])
     else
       @youtubers = Youtuber.all
     end
@@ -36,7 +37,6 @@ class YoutubersController < ApplicationController
   def create
     @youtuber = current_user.youtubers.build(youtuber_params)
     @youtuber.category_id = params[:category_id]
-
     respond_to do |format|
       if @youtuber.save
         format.html { redirect_to @youtuber, notice: 'Youtuber was successfully created.' }
