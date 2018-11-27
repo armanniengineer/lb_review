@@ -25,6 +25,8 @@ gem 'pry-byebug'
 gem 'google-analytics-rails', '~> 1.1', '>= 1.1.1'
 gem 'minidusen', '~> 0.8.3'
 gem 'dotenv-rails', groups: [:development, :test]
+gem 'cloudinary', '~> 1.9.1'
+gem 'paperclip-cloudinary', '~> 1.3', '>= 1.3.2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
