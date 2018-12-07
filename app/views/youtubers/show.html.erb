@@ -36,7 +36,7 @@
 				<h1 class="review_title"><%= @youtuber.title %></h1>
 
 				<div class= "youtuber-video">
-					<iframe width="560" height="315" src=<%= "http://www.youtube.com/embed/#{ @youtuber.youtube_embed }" %>  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+					<iframe width="560" height="315" src=<%= "https://www.youtube.com/embed/#{ @youtuber.youtube_embed }" %>  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 				</div>
 				<h3><%= @youtuber.title %> Reviews</h3>
 				<h4> This post has <%= pluralize(@reviews.count, "Reviews") %></h4>

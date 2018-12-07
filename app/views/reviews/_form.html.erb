@@ -17,6 +17,7 @@
     <div class="field">
       <label>Rating</label>
       <div id="star-rating"></div>
+
     </div>
 
     <div class="field">
@@ -34,5 +35,6 @@
   $('#star-rating').raty({
     path: '/assets/',
     scoreName: 'review[rating]'
+    // scoreName: <%= @review.rating.to_s %>
   });
 </script>
